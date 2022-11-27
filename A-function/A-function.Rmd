@@ -1,0 +1,49 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## add_count_dt 按组计算观察值
+
+```{r}
+
+# Sun Nov 27 23:44:26 2022 edit
+
+# 字符编码：UTF-8
+
+# R 版本：R 4.2.2 x64 for window 11
+
+# [cgh163email@163.com](mailto:cgh163email@163.com){.email}
+
+# 个人笔记不负责任，拎了个梨🍐🍒
+
+#.rs.restartR() # rm(list = ls());gc()
+```
+
+```{r}
+ require(tidyfst)
+
+? add_count_dt # 按组计算观察值
+
+names(iris) 
+# [1] "Sepal.Length" "Sepal.Width" "Petal.Length""Petal.Width" "Species"
+ iris |> count_dt(Species)
+ iris |> count_dt(Species,.name ="count") 
+ iris |> add_count_dt(Species)
+ iris |>add_count_dt(Species,.name = "N")
+
+```
+
+![](https://pic.imgdb.cn/item/63839a9916f2c2beb18587ce.jpg)
+
+支持正则表达式工作：
+
+```{r}
+mtcars |> count_dt(cyl,vs) 
+mtcars |> count_dt("cyl|vs") 
+mtcars |>count_dt(cyl,vs,.name = "N",sort = FALSE)
+mtcars |>add_count_dt(cyl,vs) 
+mtcars |> add_count_dt("cyl|vs")
+
+```
