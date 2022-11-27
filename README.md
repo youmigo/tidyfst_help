@@ -1,3 +1,3 @@
 # shanghai_nucleic_acid
-上海核酸点
+tidyfst包的练习（中文）
 Cancel changes
